@@ -253,7 +253,7 @@ section { padding: 7rem 2rem; position: relative; }
 /* ENSEMBLES */
 #ensembles { background: var(--bg-deep); }
 .ensembles-header { text-align: center; margin-bottom: 4rem; }
-.ensemble-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.ensemble-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
 .ensemble-card {
   position: relative; background: rgba(255,255,255,0.03);
   border: 1px solid rgba(176,125,59,0.08);
@@ -392,9 +392,24 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
 }
 .footer-bottom p { font-size: 0.65rem; color: rgba(232,224,212,0.25); letter-spacing: 0.1em; }
 
+/* PAST CLIENTS */
+#clients { background: var(--bg-warm); }
+.clients-header { text-align: center; margin-bottom: 3rem; }
+.clients-grid {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 3rem 5rem;
+}
+.client-logo {
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.5; transition: opacity 0.4s ease, filter 0.4s ease;
+  filter: grayscale(100%);
+}
+.client-logo:hover { opacity: 1; filter: grayscale(0%); }
+.client-logo img { height: 48px; width: auto; max-width: 160px; object-fit: contain; }
+
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .ensemble-grid { grid-template-columns: repeat(2, 1fr); }
+  .ensemble-grid { grid-template-columns: repeat(3, 1fr); }
   .services-layout, .booking-layout, .about-layout { grid-template-columns: 1fr; gap: 3rem; }
   .booking-info { position: static; }
   .booking-year { font-size: 3.5rem; }
@@ -433,7 +448,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
 
 <nav id="navbar">
   <a href="#" class="nav-logo">
-    <img src="logo.png" alt="Silantra Live Music Entertainment">
+    <img src="images/logo.png" alt="Silantra Live Music Entertainment">
   </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about" onclick="closeMenu()">About</a></li>
@@ -452,7 +467,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
   <div class="hero-noise"></div>
   <div class="hero-lines"></div>
   <div class="hero-content">
-    <div class="hero-logo"><img src="logo.png" alt="Silantra"></div>
+    <div class="hero-logo"><img src="images/logo.png" alt="Silantra"></div>
     <div class="hero-badge">Booking 2026 — 2027</div>
     <h1 class="hero-title">Elevate Your<br><em>Atmosphere</em></h1>
     <p class="hero-sub">Premium live music for weddings, galas, and corporate events in Montréal, Ottawa, Gatineau — and beyond.</p>
@@ -472,7 +487,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
     <div class="about-layout">
       <div class="about-image reveal">
         <div class="about-image-inner">
-          <img src="logo.png" alt="Silantra Live Music">
+          <img src="images/logo.png" alt="Silantra Live Music">
           <span>Photo Coming Soon</span>
         </div>
       </div>
@@ -518,7 +533,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
       <span class="section-label">The Ensembles</span>
       <h2 class="section-title section-title-light">Curated Formations</h2>
       <div class="section-divider" style="margin: 1.5rem auto;"></div>
-      <p class="section-subtitle section-subtitle-light" style="margin: 0 auto;">Each ensemble is meticulously composed to deliver an unforgettable sonic experience — from intimate duos to full quintets.</p>
+      <p class="section-subtitle section-subtitle-light" style="margin: 0 auto;">Each ensemble is meticulously composed to deliver an unforgettable sonic experience — from intimate duos to grand formations of 6 or more.</p>
     </div>
     <div class="ensemble-grid">
       <div class="ensemble-card reveal reveal-delay-1">
@@ -547,6 +562,13 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
         <h3 class="ensemble-name">Quintet</h3>
         <span class="ensemble-count">5 Musicians</span>
         <p class="ensemble-desc">The complete experience. Commanding presence for grand celebrations.</p>
+        <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
+      </div>
+      <div class="ensemble-card reveal reveal-delay-4" style="transition-delay:0.75s">
+        <div class="ensemble-number">6+</div>
+        <h3 class="ensemble-name">Grande</h3>
+        <span class="ensemble-count">6+ Musicians</span>
+        <p class="ensemble-desc">A fully orchestrated spectacle. Custom formations built for your grandest visions.</p>
         <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
       </div>
     </div>
@@ -665,6 +687,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
               <option value="trio">Trio — 3 Musicians</option>
               <option value="quartet">Quartet — 4 Musicians</option>
               <option value="quintet">Quintet — 5 Musicians</option>
+              <option value="grande">Grande — 6+ Musicians</option>
               <option value="undecided">Not Sure Yet</option>
             </select>
           </div>
@@ -685,10 +708,47 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
   </div>
 </section>
 
+<section id="clients">
+  <div class="container">
+    <div class="clients-header reveal">
+      <span class="section-label">Trusted By</span>
+      <h2 class="section-title">Past Clients</h2>
+      <div class="section-divider" style="margin: 1.5rem auto;"></div>
+      <p class="section-subtitle" style="margin: 0 auto; text-align: center;">A selection of the distinguished brands and institutions we've had the honour of performing for.</p>
+    </div>
+    <div class="clients-grid">
+      <div class="client-logo reveal reveal-delay-1">
+        <img src="images/clients/dior.svg" alt="Christian Dior">
+      </div>
+      <div class="client-logo reveal reveal-delay-2">
+        <img src="images/clients/versaterm.svg" alt="Versaterm Public Safety">
+      </div>
+      <div class="client-logo reveal reveal-delay-3">
+        <img src="images/clients/volvo.svg" alt="Volvo">
+      </div>
+      <div class="client-logo reveal reveal-delay-4">
+        <img src="images/clients/mcgill.png" alt="McGill University" style="height:72px;">
+      </div>
+      <div class="client-logo reveal reveal-delay-1">
+        <img src="images/clients/cigre.png" alt="CIGRÉ">
+      </div>
+      <div class="client-logo reveal reveal-delay-2">
+        <img src="images/clients/ericsson.svg" alt="Ericsson">
+      </div>
+      <div class="client-logo reveal reveal-delay-3">
+        <img src="images/clients/donj.svg" alt="Donj Jewellery">
+      </div>
+      <div class="client-logo reveal reveal-delay-4">
+        <img src="images/clients/lyft.svg" alt="Lyft">
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="logo.png" alt="Silantra" class="footer-brand-logo">
+      <img src="images/logo.png" alt="Silantra" class="footer-brand-logo">
       <p>Premium live music entertainment for life's most extraordinary moments.</p>
     </div>
     <div class="footer-center">
@@ -703,7 +763,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
         <a href="https://instagram.com/silantralivemusic" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="6" r="1.2" fill="currentColor"/></svg>
         </a>
-        <a href="mailto:info@silantralivemusic.com" aria-label="Email">
+        <a href="mailto:silantralivemusic@gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 6l10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
         </a>
       </div>

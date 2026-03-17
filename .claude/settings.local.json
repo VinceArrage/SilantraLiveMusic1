@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:brandfetch.com)",
+      "Bash(mkdir:*)",
+      "Bash(curl:*)",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://commons.wikimedia.org/wiki/Special:FilePath/Dior_Logo.svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/dior.svg' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/dior.svg\")",
+      "Bash(powershell -Command \"\nInvoke-WebRequest -Uri 'https://commons.wikimedia.org/wiki/Special:FilePath/Volvo_logo.svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/volvo.svg' -UseBasicParsing\nInvoke-WebRequest -Uri 'https://commons.wikimedia.org/wiki/Special:FilePath/McGill_\\(logo\\).svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/mcgill.svg' -UseBasicParsing\nInvoke-WebRequest -Uri 'https://cdn.brandfetch.io/idM83IAHiR/w/1500/h/500/idsmcAch_y.jpeg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/versaterm.jpeg' -UseBasicParsing\n\"\nls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/\")",
+      "WebFetch(domain:www.versaterm.com)",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://www.versaterm.com/wp-content/themes/versaterm/img/logo.svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/versaterm.svg' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/versaterm.svg\")",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://cdn.freebiesupply.com/logos/large/2x/mcgill-university-logo-png-transparent.png' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/mcgill.png' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/mcgill.png\")",
+      "Bash(powershell -Command \"\nInvoke-WebRequest -Uri 'https://commons.wikimedia.org/wiki/Special:FilePath/Ericsson_\\(2018\\).svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/ericsson.svg' -UseBasicParsing\nInvoke-WebRequest -Uri 'https://commons.wikimedia.org/wiki/Special:FilePath/Lyft_logo_2025.svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/lyft.svg' -UseBasicParsing\n\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/\")",
+      "WebFetch(domain:donjjewellery.com)",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://donjjewellery.com/wp-content/uploads/2025/11/logo-new.svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/donj.svg' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/donj.svg\")",
+      "WebFetch(domain:www.cigre.org)",
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://www.cigre.org/images/logo/cigre.png' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/cigre.png' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/cigre.png\")"
+    ]
+  }
+}
