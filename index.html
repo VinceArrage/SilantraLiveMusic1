@@ -399,6 +399,17 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
   display: flex; align-items: center; justify-content: center;
   flex-wrap: wrap; gap: 3rem 5rem;
 }
+.clients-grid-top {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 3rem 6rem;
+  margin-bottom: 3.5rem;
+}
+.clients-grid-secondary {
+  display: flex; align-items: center; justify-content: center;
+  flex-wrap: wrap; gap: 2rem 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(232,224,212,0.1);
+}
 .client-logo {
   display: flex; align-items: center; justify-content: center;
   opacity: 0.5; transition: opacity 0.4s ease, filter 0.4s ease;
@@ -406,6 +417,7 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
 }
 .client-logo:hover { opacity: 1; filter: grayscale(0%); }
 .client-logo img { height: 48px; width: auto; max-width: 160px; object-fit: contain; }
+.clients-grid-top .client-logo img { height: 80px; max-width: 220px; }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -716,29 +728,31 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
       <div class="section-divider" style="margin: 1.5rem auto;"></div>
       <p class="section-subtitle" style="margin: 0 auto; text-align: center;">A selection of the distinguished brands and institutions we've had the honour of performing for.</p>
     </div>
-    <div class="clients-grid">
+    <div class="clients-grid-top">
       <div class="client-logo reveal reveal-delay-1">
         <img src="images/clients/dior.svg" alt="Christian Dior">
       </div>
       <div class="client-logo reveal reveal-delay-2">
-        <img src="images/clients/versaterm.svg" alt="Versaterm Public Safety">
-      </div>
-      <div class="client-logo reveal reveal-delay-3">
         <img src="images/clients/volvo.svg" alt="Volvo">
       </div>
-      <div class="client-logo reveal reveal-delay-4">
-        <img src="images/clients/mcgill.png" alt="McGill University" style="height:72px;">
+      <div class="client-logo reveal reveal-delay-3">
+        <img src="images/clients/versaterm.svg" alt="Versaterm Public Safety">
       </div>
+    </div>
+    <div class="clients-grid-secondary">
       <div class="client-logo reveal reveal-delay-1">
-        <img src="images/clients/cigre.png" alt="CIGRÉ">
+        <img src="images/clients/mcgill.png" alt="McGill University">
       </div>
       <div class="client-logo reveal reveal-delay-2">
-        <img src="images/clients/ericsson.svg" alt="Ericsson">
+        <img src="images/clients/cigre.png" alt="CIGRÉ">
       </div>
       <div class="client-logo reveal reveal-delay-3">
-        <img src="images/clients/donj.svg" alt="Donj Jewellery">
+        <img src="images/clients/ericsson.svg" alt="Ericsson">
       </div>
       <div class="client-logo reveal reveal-delay-4">
+        <img src="images/clients/donj.svg" alt="Donj Jewellery">
+      </div>
+      <div class="client-logo reveal reveal-delay-1">
         <img src="images/clients/lyft.svg" alt="Lyft">
       </div>
     </div>
