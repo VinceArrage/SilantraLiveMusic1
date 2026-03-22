@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "about": "À propos",
+    "ensembles": "Ensembles",
+    "services": "Services",
+    "experience": "Expérience",
+    "book_now": "Réserver"
+  },
+  "hero": {
+    "title": "Élevez Votre<br><em>Atmosphère</em>",
+    "subtitle": "Musique live haut de gamme pour mariages, galas et événements corporatifs à Montréal, Ottawa, Gatineau et au-delà.",
+    "cta_primary": "Demander un devis",
+    "cta_secondary": "Découvrir Silantra",
+    "scroll": "Défiler"
+  },
+  "about": {
+    "label": "À propos de Silantra",
+    "title": "L'Élégance<br>Rencontre le Rythme",
+    "photo": "Photo à venir",
+    "p1": "Silantra Divertissement Musique Live est un collectif boutique de musiciens professionnels dédiés à transformer les événements en expériences inoubliables. Enracinés dans le vibrant couloir culturel de Montréal, Ottawa et Gatineau, nous apportons la sophistication du jazz et l'énergie du pop à chaque scène que nous honorons.",
+    "p2": "Qu'il s'agisse de la tendre première danse d'un mariage, du pouls ambiant d'un cocktail d'entreprise, ou de la grandeur d'un gala, nos ensembles sont méticuleusement sélectionnés pour correspondre à l'ambiance de votre occasion.",
+    "v1_title": "Excellence Curatée",
+    "v1_desc": "Chaque musicien est choisi pour son talent artistique, son professionnalisme et sa capacité à lire l'atmosphère.",
+    "v2_title": "Répertoire Sur Mesure",
+    "v2_desc": "Des standards de jazz classiques aux arrangements pop contemporains adaptés à votre vision.",
+    "v3_title": "Bilingue et au-delà",
+    "v3_desc": "Maîtrisant l'anglais et le français. Basés dans la Région de la capitale nationale. Nous voyageons aussi partout où la musique nous emmène."
+  },
+  "ensembles": {
+    "label": "Les Ensembles",
+    "title": "Formations Raffinées",
+    "subtitle": "Chaque ensemble offre une expérience musicale inoubliable, des duos intimes aux grandes formations de 6 musiciens ou plus.",
+    "duo_count": "2 Musiciens",
+    "duo_desc": "Intime et raffiné. Parfait pour les cocktails et les dîners privés.",
+    "trio_count": "3 Musiciens",
+    "trio_desc": "Un mélange équilibré de chaleur et d'énergie. Idéal pour les réceptions et les lounges.",
+    "quartet_count": "4 Musiciens",
+    "quartet_desc": "Son riche et plein. Une pièce maîtresse pour les galas et les cérémonies.",
+    "quintet_count": "5 Musiciens",
+    "quintet_desc": "L'expérience complète. Une présence imposante pour les grandes célébrations.",
+    "grande_count": "6+ Musiciens",
+    "grande_desc": "Un spectacle entièrement orchestré. Formations sur mesure pour vos visions les plus grandioses."
+  },
+  "services": {
+    "label": "Ce que nous faisons",
+    "title": "Adapté à Votre<br>Occasion",
+    "subtitle": "Chaque événement a son propre rythme. Nous créons des expériences musicales sur mesure qui élèvent l'atmosphère et laissent des impressions durables sur vos invités.",
+    "weddings": "Mariages",
+    "weddings_desc": "De la cérémonie à la réception, nous donnons le ton parfait pour chaque moment de votre journée spéciale.",
+    "corporate": "Entreprises",
+    "corporate_desc": "Divertissement sophistiqué pour conférences, lancements de produits, grandes ouvertures, événements exécutifs et plus encore.",
+    "cocktails": "Cocktails",
+    "cocktails_desc": "Des sets fluides et ambiants qui créent l'arrière-plan parfait pour le réseautage et la socialisation.",
+    "galas": "Galas",
+    "galas_desc": "Des performances grandioses et remarquables qui correspondent au prestige de votre événement."
+  },
+  "experience": {
+    "quote": "\u201cLa musique est le langage universel qui transforme les moments en souvenirs.\u201d",
+    "attr": "\u2014 La Philosophie Silantra",
+    "video": "Vidéo à venir"
+  },
+  "booking": {
+    "label": "Demande de réservation",
+    "title": "Réservez<br>Votre Date",
+    "subtitle": "Les dates de la saison 2026\u20132027 se remplissent rapidement. Partagez votre vision avec nous et nous créerons l'expérience musicale parfaite.",
+    "f1": "Musiciens professionnellement formés",
+    "f2": "Options d'ensemble flexibles",
+    "f3": "Service bilingue (EN / FR)",
+    "f4": "Basés à Montréal · Ottawa · Gatineau",
+    "travel_note": "<strong>Vous planifiez un événement dans une autre ville?</strong> Nous serions ravis d'en entendre parler. Silantra se déplace! Dites-nous simplement votre emplacement et nous ferons en sorte que cela se réalise.",
+    "label_name": "Nom complet",
+    "label_email": "Courriel",
+    "label_date": "Date de l'événement",
+    "label_event_type": "Type d'événement",
+    "label_formation": "Formation souhaitée",
+    "label_venue": "Lieu / Ville",
+    "label_message": "Parlez-nous de votre vision",
+    "ph_name": "Votre nom",
+    "ph_email": "votre@courriel.com",
+    "ph_venue": "Nom du lieu, ville ou région",
+    "ph_message": "Partagez tous les détails sur votre événement!",
+    "opt_event_default": "Sélectionnez le type d'événement",
+    "opt_wedding": "Mariage",
+    "opt_corporate": "Événement corporatif",
+    "opt_cocktail": "Cocktail",
+    "opt_gala": "Gala",
+    "opt_other": "Autre",
+    "opt_formation_default": "Sélectionnez la formation",
+    "opt_duo": "Duo \u2014 2 Musiciens",
+    "opt_trio": "Trio \u2014 3 Musiciens",
+    "opt_quartet": "Quatuor \u2014 4 Musiciens",
+    "opt_quintet": "Quintette \u2014 5 Musiciens",
+    "opt_grande": "Grande \u2014 6+ Musiciens",
+    "opt_undecided": "Pas encore décidé",
+    "submit": "Envoyer la demande \u2192",
+    "error": "Veuillez remplir les champs obligatoires",
+    "success": "Merci! Nous vous contacterons bientôt \u2726"
+  },
+  "clients": {
+    "label": "Ils nous font confiance",
+    "title": "Anciens Clients",
+    "subtitle": "Une sélection des marques et institutions distinguées pour lesquelles nous avons eu l'honneur de nous produire."
+  },
+  "footer": {
+    "brand_desc": "Divertissement de musique live haut de gamme pour les moments les plus extraordinaires de la vie.",
+    "beyond": "& Au-delà",
+    "tagline": "Vous avez une autre ville en tête? Nous voyageons.",
+    "right": "Jazz & Pop<br>Duo \u00b7 Trio \u00b7 Quatuor \u00b7 Quintette<br><a href=\"#booking\">Réserver 2026\u20132027</a>",
+    "copyright": "\u00a9 2026 Silantra Divertissement Musique Live. Tous droits réservés.",
+    "regions": "MTL \u2014 OTT \u2014 GAT \u2014 & AU-DELÀ"
+  }
+}

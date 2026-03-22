@@ -458,6 +458,39 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
   .hero-actions { flex-direction: column; align-items: center; }
   .btn-primary, .btn-outline { width: 100%; justify-content: center; }
 }
+
+/* LANG TOGGLE */
+.lang-toggle {
+  background: none; border: 1px solid rgba(232,224,212,0.3);
+  color: rgba(232,224,212,0.88); font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem; font-weight: 300; letter-spacing: 0.15em;
+  padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.3s ease;
+  text-transform: uppercase; margin-left: 0.5rem;
+}
+nav.scrolled .lang-toggle { border-color: rgba(44,37,32,0.25); color: var(--text-dark); }
+.lang-toggle:hover { border-color: var(--bronze); color: var(--bronze-light); }
+nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bronze); }
+@media (max-width: 768px) { .lang-toggle { display: none; } }
+
+/* LANG TOGGLE — IN-MENU (mobile) & FOOTER */
+.lang-toggle-menu {
+  background: none; border: 1px solid rgba(44,37,32,0.2);
+  color: var(--text-dark); font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem; font-weight: 300; letter-spacing: 0.2em;
+  padding: 0.5rem 1.4rem; cursor: pointer; text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.lang-toggle-menu:hover { border-color: var(--bronze); color: var(--bronze); }
+
+.footer-lang-toggle {
+  display: inline-block; margin-top: 1.25rem;
+  background: none; border: 1px solid rgba(176,125,59,0.25);
+  color: rgba(232,224,212,0.6); font-family: 'Outfit', sans-serif;
+  font-size: 0.65rem; font-weight: 300; letter-spacing: 0.18em;
+  padding: 0.35rem 0.8rem; cursor: pointer; text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+.footer-lang-toggle:hover { border-color: var(--bronze); color: var(--bronze-light); }
 </style>
 </head>
 <body>
@@ -467,12 +500,14 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
     <img src="images/SilantraLogo.png" alt="Silantra Live Music Entertainment">
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about" onclick="closeMenu()">About</a></li>
-    <li><a href="#ensembles" onclick="closeMenu()">Ensembles</a></li>
-    <li><a href="#services" onclick="closeMenu()">Services</a></li>
-    <li><a href="#experience" onclick="closeMenu()">Experience</a></li>
-    <li><a href="#booking" class="nav-cta" onclick="closeMenu()">Book Now</a></li>
+    <li><a href="#about" onclick="closeMenu()" data-i18n="nav.about">About</a></li>
+    <li><a href="#ensembles" onclick="closeMenu()" data-i18n="nav.ensembles">Ensembles</a></li>
+    <li><a href="#services" onclick="closeMenu()" data-i18n="nav.services">Services</a></li>
+    <li><a href="#experience" onclick="closeMenu()" data-i18n="nav.experience">Experience</a></li>
+    <li><a href="#booking" class="nav-cta" onclick="closeMenu()" data-i18n="nav.book_now">Book Now</a></li>
+    <li><button class="lang-toggle-btn lang-toggle-menu" id="langToggleMobile" onclick="switchLang(currentLang === 'en' ? 'fr' : 'en'); closeMenu();">FR</button></li>
   </ul>
+  <button class="lang-toggle lang-toggle-btn" id="langToggle" aria-label="Switch language">FR</button>
   <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
@@ -486,15 +521,15 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
     <div class="hero-logo"><img src="images/SilantraLogo.png" alt="Silantra"></div>
     <div class="hero-wordmark">SILANTRA</div>
     <div class="hero-tagline">Live Music Entertainment</div>
-    <h1 class="hero-title">Elevate Your<br><em>Atmosphere</em></h1>
-    <p class="hero-sub">Premium live music for weddings, galas, and corporate events in Montréal, Ottawa, Gatineau and beyond.</p>
+    <h1 class="hero-title" data-i18n-html="hero.title">Elevate Your<br><em>Atmosphere</em></h1>
+    <p class="hero-sub" data-i18n="hero.subtitle">Premium live music for weddings, galas, and corporate events in Montréal, Ottawa, Gatineau and beyond.</p>
     <div class="hero-actions">
-      <a href="#booking" class="btn-primary">Request a Quote <span>→</span></a>
-      <a href="#about" class="btn-outline">Discover Silantra</a>
+      <a href="#booking" class="btn-primary"><span data-i18n="hero.cta_primary">Request a Quote</span> <span>→</span></a>
+      <a href="#about" class="btn-outline" data-i18n="hero.cta_secondary">Discover Silantra</a>
     </div>
   </div>
   <div class="scroll-indicator">
-    <span>Scroll</span>
+    <span data-i18n="hero.scroll">Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -505,37 +540,37 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
       <div class="about-image reveal">
         <div class="about-image-inner">
           <img src="images/SilantraLogo.png" alt="Silantra Live Music">
-          <span>Photo Coming Soon</span>
+          <span data-i18n="about.photo">Photo Coming Soon</span>
         </div>
       </div>
       <div class="about-text">
         <div class="reveal">
-          <span class="section-label">About Silantra</span>
-          <h2 class="section-title">Where Elegance<br>Meets Rhythm</h2>
+          <span class="section-label" data-i18n="about.label">About Silantra</span>
+          <h2 class="section-title" data-i18n-html="about.title">Where Elegance<br>Meets Rhythm</h2>
           <div class="section-divider"></div>
-          <p class="section-subtitle">Silantra Live Music Entertainment is a boutique collective of professional musicians dedicated to transforming events into unforgettable experiences. Rooted in the vibrant cultural corridor of Montréal, Ottawa, and Gatineau, we bring the sophistication of jazz and the energy of pop to every stage we grace.</p>
-          <p class="section-subtitle" style="margin-top: 1rem;">Whether it's the tender first dance at a wedding, the ambient pulse of a corporate cocktail, or the grandeur of a gala, our ensembles are meticulously curated to match the mood of your occasion.</p>
+          <p class="section-subtitle" data-i18n="about.p1">Silantra Live Music Entertainment is a boutique collective of professional musicians dedicated to transforming events into unforgettable experiences. Rooted in the vibrant cultural corridor of Montréal, Ottawa, and Gatineau, we bring the sophistication of jazz and the energy of pop to every stage we grace.</p>
+          <p class="section-subtitle" style="margin-top: 1rem;" data-i18n="about.p2">Whether it's the tender first dance at a wedding, the ambient pulse of a corporate cocktail, or the grandeur of a gala, our ensembles are meticulously curated to match the mood of your occasion.</p>
         </div>
         <div class="about-values reveal reveal-delay-2">
           <div class="about-value">
             <div class="about-value-icon">♫</div>
             <div>
-              <h4>Curated Excellence</h4>
-              <p>Every musician is hand-selected for their artistry, professionalism, and ability to read a room.</p>
+              <h4 data-i18n="about.v1_title">Curated Excellence</h4>
+              <p data-i18n="about.v1_desc">Every musician is hand-selected for their artistry, professionalism, and ability to read a room.</p>
             </div>
           </div>
           <div class="about-value">
             <div class="about-value-icon">◆</div>
             <div>
-              <h4>Bespoke Repertoire</h4>
-              <p>From classic jazz standards to contemporary pop arrangements tailored to your vision.</p>
+              <h4 data-i18n="about.v2_title">Bespoke Repertoire</h4>
+              <p data-i18n="about.v2_desc">From classic jazz standards to contemporary pop arrangements tailored to your vision.</p>
             </div>
           </div>
           <div class="about-value">
             <div class="about-value-icon">✦</div>
             <div>
-              <h4>Bilingual & Beyond</h4>
-              <p>Fluent in English and French. Based in the National Capital Region. We also travel wherever the music takes us.</p>
+              <h4 data-i18n="about.v3_title">Bilingual & Beyond</h4>
+              <p data-i18n="about.v3_desc">Fluent in English and French. Based in the National Capital Region. We also travel wherever the music takes us.</p>
             </div>
           </div>
         </div>
@@ -547,45 +582,45 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
 <section id="ensembles">
   <div class="container">
     <div class="ensembles-header reveal">
-      <span class="section-label">The Ensembles</span>
-      <h2 class="section-title section-title-light">Curated Formations</h2>
+      <span class="section-label" data-i18n="ensembles.label">The Ensembles</span>
+      <h2 class="section-title section-title-light" data-i18n="ensembles.title">Curated Formations</h2>
       <div class="section-divider" style="margin: 1.5rem auto;"></div>
-      <p class="section-subtitle section-subtitle-light" style="margin: 0 auto;">Each ensemble delivers an unforgettable musical experience, from intimate duos to grand formations of 6 or more.</p>
+      <p class="section-subtitle section-subtitle-light" style="margin: 0 auto;" data-i18n="ensembles.subtitle">Each ensemble delivers an unforgettable musical experience, from intimate duos to grand formations of 6 or more.</p>
     </div>
     <div class="ensemble-grid">
       <div class="ensemble-card reveal reveal-delay-1">
         <div class="ensemble-number">2</div>
         <h3 class="ensemble-name">Duo</h3>
-        <span class="ensemble-count">2 Musicians</span>
-        <p class="ensemble-desc">Intimate and refined. Perfect for cocktail hours and private dinners.</p>
+        <span class="ensemble-count" data-i18n="ensembles.duo_count">2 Musicians</span>
+        <p class="ensemble-desc" data-i18n="ensembles.duo_desc">Intimate and refined. Perfect for cocktail hours and private dinners.</p>
         <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
       </div>
       <div class="ensemble-card reveal reveal-delay-2">
         <div class="ensemble-number">3</div>
         <h3 class="ensemble-name">Trio</h3>
-        <span class="ensemble-count">3 Musicians</span>
-        <p class="ensemble-desc">A balanced blend of warmth and energy. Ideal for receptions and lounges.</p>
+        <span class="ensemble-count" data-i18n="ensembles.trio_count">3 Musicians</span>
+        <p class="ensemble-desc" data-i18n="ensembles.trio_desc">A balanced blend of warmth and energy. Ideal for receptions and lounges.</p>
         <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
       </div>
       <div class="ensemble-card reveal reveal-delay-3">
         <div class="ensemble-number">4</div>
         <h3 class="ensemble-name">Quartet</h3>
-        <span class="ensemble-count">4 Musicians</span>
-        <p class="ensemble-desc">Rich, full-bodied sound. A statement piece for galas and ceremonies.</p>
+        <span class="ensemble-count" data-i18n="ensembles.quartet_count">4 Musicians</span>
+        <p class="ensemble-desc" data-i18n="ensembles.quartet_desc">Rich, full-bodied sound. A statement piece for galas and ceremonies.</p>
         <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
       </div>
       <div class="ensemble-card reveal reveal-delay-4">
         <div class="ensemble-number">5</div>
         <h3 class="ensemble-name">Quintet</h3>
-        <span class="ensemble-count">5 Musicians</span>
-        <p class="ensemble-desc">The complete experience. Commanding presence for grand celebrations.</p>
+        <span class="ensemble-count" data-i18n="ensembles.quintet_count">5 Musicians</span>
+        <p class="ensemble-desc" data-i18n="ensembles.quintet_desc">The complete experience. Commanding presence for grand celebrations.</p>
         <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
       </div>
       <div class="ensemble-card reveal reveal-delay-4" style="transition-delay:0.75s">
         <div class="ensemble-number">6+</div>
         <h3 class="ensemble-name">Grande</h3>
-        <span class="ensemble-count">6+ Musicians</span>
-        <p class="ensemble-desc">A fully orchestrated spectacle. Custom formations built for your grandest visions.</p>
+        <span class="ensemble-count" data-i18n="ensembles.grande_count">6+ Musicians</span>
+        <p class="ensemble-desc" data-i18n="ensembles.grande_desc">A fully orchestrated spectacle. Custom formations built for your grandest visions.</p>
         <div class="ensemble-genres"><span class="genre-tag">Jazz</span><span class="genre-tag">Pop</span></div>
       </div>
     </div>
@@ -596,31 +631,31 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
   <div class="container">
     <div class="services-layout">
       <div class="reveal">
-        <span class="section-label">What We Do</span>
-        <h2 class="section-title">Tailored to Your<br>Occasion</h2>
+        <span class="section-label" data-i18n="services.label">What We Do</span>
+        <h2 class="section-title" data-i18n-html="services.title">Tailored to Your<br>Occasion</h2>
         <div class="section-divider"></div>
-        <p class="section-subtitle">Every event has its own rhythm. We craft bespoke musical experiences that elevate the atmosphere and leave lasting impressions on your guests.</p>
+        <p class="section-subtitle" data-i18n="services.subtitle">Every event has its own rhythm. We craft bespoke musical experiences that elevate the atmosphere and leave lasting impressions on your guests.</p>
       </div>
       <div class="services-grid">
         <div class="service-card reveal reveal-delay-1">
           <div class="service-icon"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 8c-4 0-7 3-7 7 0 5 7 12 7 12s7-7 7-12c0-4-3-7-7-7z"/><circle cx="20" cy="15" r="2.5"/><path d="M12 32h16M14 36h12"/></svg></div>
-          <h3 class="service-name">Weddings</h3>
-          <p class="service-desc">From ceremony to reception, we set the perfect tone for every moment of your special day.</p>
+          <h3 class="service-name" data-i18n="services.weddings">Weddings</h3>
+          <p class="service-desc" data-i18n="services.weddings_desc">From ceremony to reception, we set the perfect tone for every moment of your special day.</p>
         </div>
         <div class="service-card reveal reveal-delay-2">
           <div class="service-icon"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="12" width="24" height="20" rx="1"/><path d="M14 12V9a6 6 0 0 1 12 0v3"/><path d="M20 22v4M18 24h4"/></svg></div>
-          <h3 class="service-name">Corporate</h3>
-          <p class="service-desc">Sophisticated entertainment for conferences, product launches, grand openings, executive events and more.</p>
+          <h3 class="service-name" data-i18n="services.corporate">Corporate</h3>
+          <p class="service-desc" data-i18n="services.corporate_desc">Sophisticated entertainment for conferences, product launches, grand openings, executive events and more.</p>
         </div>
         <div class="service-card reveal reveal-delay-3">
           <div class="service-icon"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M12 8l8 14M28 8l-8 14"/><path d="M20 22v10"/><path d="M14 32h12"/><ellipse cx="20" cy="10" rx="10" ry="3"/></svg></div>
-          <h3 class="service-name">Cocktails</h3>
-          <p class="service-desc">Smooth, ambient sets that create the perfect backdrop for networking and socializing.</p>
+          <h3 class="service-name" data-i18n="services.cocktails">Cocktails</h3>
+          <p class="service-desc" data-i18n="services.cocktails_desc">Smooth, ambient sets that create the perfect backdrop for networking and socializing.</p>
         </div>
         <div class="service-card reveal reveal-delay-4">
           <div class="service-icon"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 6l3 7h7l-5.5 4.5L26.5 25 20 20.5 13.5 25l2-7.5L10 13h7z"/><circle cx="20" cy="20" r="14" stroke-dasharray="3 3"/></svg></div>
-          <h3 class="service-name">Galas</h3>
-          <p class="service-desc">Grand, show-stopping performances that match the prestige of your event.</p>
+          <h3 class="service-name" data-i18n="services.galas">Galas</h3>
+          <p class="service-desc" data-i18n="services.galas_desc">Grand, show-stopping performances that match the prestige of your event.</p>
         </div>
       </div>
     </div>
@@ -629,21 +664,21 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
 
 <section id="experience">
   <div class="experience-banner reveal">
-    <p class="experience-quote">"Music is the universal language that turns moments into memories."</p>
-    <span class="experience-attr">— The Silantra Philosophy</span>
+    <p class="experience-quote" data-i18n="experience.quote">"Music is the universal language that turns moments into memories."</p>
+    <span class="experience-attr" data-i18n="experience.attr">— The Silantra Philosophy</span>
   </div>
   <div class="media-grid">
     <div class="media-placeholder reveal reveal-delay-1">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
-      <span>Video Coming Soon</span>
+      <span data-i18n="experience.video">Video Coming Soon</span>
     </div>
     <div class="media-placeholder reveal reveal-delay-2">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
-      <span>Video Coming Soon</span>
+      <span data-i18n="experience.video">Video Coming Soon</span>
     </div>
     <div class="media-placeholder reveal reveal-delay-3">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
-      <span>Video Coming Soon</span>
+      <span data-i18n="experience.video">Video Coming Soon</span>
     </div>
   </div>
 </section>
@@ -653,73 +688,73 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
     <div class="booking-layout">
       <div class="booking-info reveal">
         <div class="booking-year">26/27</div>
-        <span class="section-label">Booking Inquiry</span>
-        <h2 class="section-title section-title-light">Reserve Your<br>Date</h2>
+        <span class="section-label" data-i18n="booking.label">Booking Inquiry</span>
+        <h2 class="section-title section-title-light" data-i18n-html="booking.title">Reserve Your<br>Date</h2>
         <div class="section-divider"></div>
-        <p class="section-subtitle section-subtitle-light">Dates for the 2026–2027 season are filling quickly. Share your vision with us and we'll craft the perfect musical experience.</p>
+        <p class="section-subtitle section-subtitle-light" data-i18n="booking.subtitle">Dates for the 2026–2027 season are filling quickly. Share your vision with us and we'll craft the perfect musical experience.</p>
         <ul class="booking-features">
-          <li>Professionally trained musicians</li>
-          <li>Flexible ensemble options</li>
-          <li>Bilingual service (EN / FR)</li>
-          <li>Based in Montréal · Ottawa · Gatineau</li>
+          <li data-i18n="booking.f1">Professionally trained musicians</li>
+          <li data-i18n="booking.f2">Flexible ensemble options</li>
+          <li data-i18n="booking.f3">Bilingual service (EN / FR)</li>
+          <li data-i18n="booking.f4">Based in Montréal · Ottawa · Gatineau</li>
         </ul>
         <div class="booking-location-note reveal reveal-delay-2">
-          <p><strong>Planning an event in another city?</strong> We'd love to hear from you. Silantra travels! Just let us know your location and we'll make it happen.</p>
+          <p data-i18n-html="booking.travel_note"><strong>Planning an event in another city?</strong> We'd love to hear from you. Silantra travels! Just let us know your location and we'll make it happen.</p>
         </div>
       </div>
       <div class="booking-form reveal reveal-delay-2">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" placeholder="Your name">
+            <label for="name" data-i18n="booking.label_name">Full Name</label>
+            <input type="text" id="name" placeholder="Your name" data-i18n-placeholder="booking.ph_name">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="your@email.com">
+            <label for="email" data-i18n="booking.label_email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" data-i18n-placeholder="booking.ph_email">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="date">Event Date</label>
+            <label for="date" data-i18n="booking.label_date">Event Date</label>
             <input type="date" id="date">
           </div>
           <div class="form-group">
-            <label for="eventType">Event Type</label>
+            <label for="eventType" data-i18n="booking.label_event_type">Event Type</label>
             <select id="eventType">
-              <option value="" disabled selected>Select event type</option>
-              <option value="wedding">Wedding</option>
-              <option value="corporate">Corporate Event</option>
-              <option value="cocktail">Cocktail</option>
-              <option value="gala">Gala</option>
-              <option value="other">Other</option>
+              <option value="" disabled selected data-i18n="booking.opt_event_default">Select event type</option>
+              <option value="wedding" data-i18n="booking.opt_wedding">Wedding</option>
+              <option value="corporate" data-i18n="booking.opt_corporate">Corporate Event</option>
+              <option value="cocktail" data-i18n="booking.opt_cocktail">Cocktail</option>
+              <option value="gala" data-i18n="booking.opt_gala">Gala</option>
+              <option value="other" data-i18n="booking.opt_other">Other</option>
             </select>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="formation">Formation Interest</label>
+            <label for="formation" data-i18n="booking.label_formation">Formation Interest</label>
             <select id="formation">
-              <option value="" disabled selected>Select formation</option>
-              <option value="duo">Duo — 2 Musicians</option>
-              <option value="trio">Trio — 3 Musicians</option>
-              <option value="quartet">Quartet — 4 Musicians</option>
-              <option value="quintet">Quintet — 5 Musicians</option>
-              <option value="grande">Grande — 6+ Musicians</option>
-              <option value="undecided">Not Sure Yet</option>
+              <option value="" disabled selected data-i18n="booking.opt_formation_default">Select formation</option>
+              <option value="duo" data-i18n="booking.opt_duo">Duo — 2 Musicians</option>
+              <option value="trio" data-i18n="booking.opt_trio">Trio — 3 Musicians</option>
+              <option value="quartet" data-i18n="booking.opt_quartet">Quartet — 4 Musicians</option>
+              <option value="quintet" data-i18n="booking.opt_quintet">Quintet — 5 Musicians</option>
+              <option value="grande" data-i18n="booking.opt_grande">Grande — 6+ Musicians</option>
+              <option value="undecided" data-i18n="booking.opt_undecided">Not Sure Yet</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="venue">Venue / City</label>
-            <input type="text" id="venue" placeholder="Venue name, city, or region">
+            <label for="venue" data-i18n="booking.label_venue">Venue / City</label>
+            <input type="text" id="venue" placeholder="Venue name, city, or region" data-i18n-placeholder="booking.ph_venue">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group full">
-            <label for="message">Tell Us About Your Vision</label>
-            <textarea id="message" placeholder="Share any details about your event!"></textarea>
+            <label for="message" data-i18n="booking.label_message">Tell Us About Your Vision</label>
+            <textarea id="message" placeholder="Share any details about your event!" data-i18n-placeholder="booking.ph_message"></textarea>
           </div>
         </div>
-        <button class="form-submit" type="button" onclick="handleSubmit()">Send Inquiry →</button>
+        <button class="form-submit" type="button" onclick="handleSubmit()" data-i18n="booking.submit">Send Inquiry →</button>
       </div>
     </div>
   </div>
@@ -728,10 +763,10 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
 <section id="clients">
   <div class="container">
     <div class="clients-header reveal">
-      <span class="section-label">Trusted By</span>
-      <h2 class="section-title">Past Clients</h2>
+      <span class="section-label" data-i18n="clients.label">Trusted By</span>
+      <h2 class="section-title" data-i18n="clients.title">Past Clients</h2>
       <div class="section-divider" style="margin: 1.5rem auto;"></div>
-      <p class="section-subtitle" style="margin: 0 auto; text-align: center;">A selection of the distinguished brands and institutions we've had the honour of performing for.</p>
+      <p class="section-subtitle" style="margin: 0 auto; text-align: center;" data-i18n="clients.subtitle">A selection of the distinguished brands and institutions we've had the honour of performing for.</p>
     </div>
     <div class="clients-grid-top">
       <div class="client-logo reveal reveal-delay-1">
@@ -768,16 +803,16 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="images/SilantraLogo.png" alt="Silantra" class="footer-brand-logo">
-      <p>Premium live music entertainment for life's most extraordinary moments.</p>
+      <p data-i18n="footer.brand_desc">Premium live music entertainment for life's most extraordinary moments.</p>
     </div>
     <div class="footer-center">
       <div class="footer-regions">
         <span>Montréal</span><span class="footer-dot"></span>
         <span>Ottawa</span><span class="footer-dot"></span>
         <span>Gatineau</span><span class="footer-dot"></span>
-        <span>& Beyond</span>
+        <span data-i18n="footer.beyond">& Beyond</span>
       </div>
-      <p class="footer-tagline">Have another city in mind? We travel.</p>
+      <p class="footer-tagline" data-i18n="footer.tagline">Have another city in mind? We travel.</p>
       <div class="footer-social">
         <a href="https://instagram.com/silantralivemusic" target="_blank" rel="noopener" aria-label="Instagram">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="6" r="1.2" fill="currentColor"/></svg>
@@ -786,14 +821,15 @@ footer { padding: 4rem 2rem 2rem; background: var(--bg-noir); border-top: 1px so
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2 6l10 7 10-7" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
         </a>
       </div>
+      <button class="footer-lang-toggle lang-toggle-btn" id="langToggleFooter">FR</button>
     </div>
     <div class="footer-right">
-      <p>Jazz & Pop<br>Duo · Trio · Quartet · Quintet<br><a href="#booking">Book 2026–2027</a></p>
+      <p data-i18n-html="footer.right">Jazz & Pop<br>Duo · Trio · Quartet · Quintet<br><a href="#booking">Book 2026–2027</a></p>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Silantra Live Music Entertainment. All rights reserved.</p>
-    <p>MTL — OTT — GAT — & BEYOND</p>
+    <p data-i18n="footer.copyright">© 2026 Silantra Live Music Entertainment. All rights reserved.</p>
+    <p data-i18n="footer.regions">MTL — OTT — GAT — & BEYOND</p>
   </div>
 </footer>
 
@@ -833,20 +869,81 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+/* ── i18n ── */
+let currentLang = localStorage.getItem('silantra_lang') ||
+  (navigator.language && navigator.language.startsWith('fr') ? 'fr' : 'en');
+
+const translations = {};
+
+function getVal(obj, key) {
+  return key.split('.').reduce((o, k) => (o && o[k] !== undefined ? o[k] : undefined), obj);
+}
+
+function applyTranslations(t) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = getVal(t, el.getAttribute('data-i18n'));
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const v = getVal(t, el.getAttribute('data-i18n-html'));
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const v = getVal(t, el.getAttribute('data-i18n-placeholder'));
+    if (v !== undefined) el.placeholder = v;
+  });
+  document.documentElement.lang = currentLang;
+  const label = currentLang === 'en' ? 'FR' : 'EN';
+  document.querySelectorAll('.lang-toggle-btn').forEach(btn => { btn.textContent = label; });
+}
+
+async function switchLang(lang) {
+  if (!translations[lang]) {
+    try {
+      const res = await fetch(`locales/${lang}.json`);
+      translations[lang] = await res.json();
+    } catch (e) {
+      console.warn('Could not load translations for', lang);
+      return;
+    }
+  }
+  currentLang = lang;
+  localStorage.setItem('silantra_lang', lang);
+  applyTranslations(translations[lang]);
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  switchLang(currentLang === 'en' ? 'fr' : 'en');
+});
+document.getElementById('langToggleFooter').addEventListener('click', () => {
+  switchLang(currentLang === 'en' ? 'fr' : 'en');
+});
+
+switchLang(currentLang);
+
 function handleSubmit() {
   const btn = document.querySelector('.form-submit');
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
+  const t = translations[currentLang] || {};
+  const isFr = currentLang === 'fr';
   if (!name || !email) {
-    btn.textContent = 'Please fill in required fields';
+    btn.textContent = getVal(t, 'booking.error') || (isFr ? 'Veuillez remplir les champs obligatoires' : 'Please fill in required fields');
     btn.style.background = '#8a4040';
-    setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.style.background = ''; }, 2500);
+    setTimeout(() => {
+      btn.textContent = getVal(t, 'booking.submit') || (isFr ? 'Envoyer la demande →' : 'Send Inquiry →');
+      btn.style.background = '';
+    }, 2500);
     return;
   }
-  btn.textContent = 'Thank You! We\'ll Be in Touch ✦';
+  btn.textContent = getVal(t, 'booking.success') || (isFr ? 'Merci! Nous vous contacterons bientôt ✦' : "Thank You! We'll Be in Touch ✦");
   btn.style.background = '#4a7a4a';
   btn.disabled = true;
-  setTimeout(() => { btn.textContent = 'Send Inquiry →'; btn.style.background = ''; btn.disabled = false; }, 4000);
+  setTimeout(() => {
+    btn.textContent = getVal(t, 'booking.submit') || (isFr ? 'Envoyer la demande →' : 'Send Inquiry →');
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
 }
 </script>
 </body>

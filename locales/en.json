@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "about": "About",
+    "ensembles": "Ensembles",
+    "services": "Services",
+    "experience": "Experience",
+    "book_now": "Book Now"
+  },
+  "hero": {
+    "title": "Elevate Your<br><em>Atmosphere</em>",
+    "subtitle": "Premium live music for weddings, galas, and corporate events in Montréal, Ottawa, Gatineau and beyond.",
+    "cta_primary": "Request a Quote",
+    "cta_secondary": "Discover Silantra",
+    "scroll": "Scroll"
+  },
+  "about": {
+    "label": "About Silantra",
+    "title": "Where Elegance<br>Meets Rhythm",
+    "photo": "Photo Coming Soon",
+    "p1": "Silantra Live Music Entertainment is a boutique collective of professional musicians dedicated to transforming events into unforgettable experiences. Rooted in the vibrant cultural corridor of Montréal, Ottawa, and Gatineau, we bring the sophistication of jazz and the energy of pop to every stage we grace.",
+    "p2": "Whether it's the tender first dance at a wedding, the ambient pulse of a corporate cocktail, or the grandeur of a gala, our ensembles are meticulously curated to match the mood of your occasion.",
+    "v1_title": "Curated Excellence",
+    "v1_desc": "Every musician is hand-selected for their artistry, professionalism, and ability to read a room.",
+    "v2_title": "Bespoke Repertoire",
+    "v2_desc": "From classic jazz standards to contemporary pop arrangements tailored to your vision.",
+    "v3_title": "Bilingual & Beyond",
+    "v3_desc": "Fluent in English and French. Based in the National Capital Region. We also travel wherever the music takes us."
+  },
+  "ensembles": {
+    "label": "The Ensembles",
+    "title": "Curated Formations",
+    "subtitle": "Each ensemble delivers an unforgettable musical experience, from intimate duos to grand formations of 6 or more.",
+    "duo_count": "2 Musicians",
+    "duo_desc": "Intimate and refined. Perfect for cocktail hours and private dinners.",
+    "trio_count": "3 Musicians",
+    "trio_desc": "A balanced blend of warmth and energy. Ideal for receptions and lounges.",
+    "quartet_count": "4 Musicians",
+    "quartet_desc": "Rich, full-bodied sound. A statement piece for galas and ceremonies.",
+    "quintet_count": "5 Musicians",
+    "quintet_desc": "The complete experience. Commanding presence for grand celebrations.",
+    "grande_count": "6+ Musicians",
+    "grande_desc": "A fully orchestrated spectacle. Custom formations built for your grandest visions."
+  },
+  "services": {
+    "label": "What We Do",
+    "title": "Tailored to Your<br>Occasion",
+    "subtitle": "Every event has its own rhythm. We craft bespoke musical experiences that elevate the atmosphere and leave lasting impressions on your guests.",
+    "weddings": "Weddings",
+    "weddings_desc": "From ceremony to reception, we set the perfect tone for every moment of your special day.",
+    "corporate": "Corporate",
+    "corporate_desc": "Sophisticated entertainment for conferences, product launches, grand openings, executive events and more.",
+    "cocktails": "Cocktails",
+    "cocktails_desc": "Smooth, ambient sets that create the perfect backdrop for networking and socializing.",
+    "galas": "Galas",
+    "galas_desc": "Grand, show-stopping performances that match the prestige of your event."
+  },
+  "experience": {
+    "quote": "\u201cMusic is the universal language that turns moments into memories.\u201d",
+    "attr": "\u2014 The Silantra Philosophy",
+    "video": "Video Coming Soon"
+  },
+  "booking": {
+    "label": "Booking Inquiry",
+    "title": "Reserve Your<br>Date",
+    "subtitle": "Dates for the 2026\u20132027 season are filling quickly. Share your vision with us and we\u2019ll craft the perfect musical experience.",
+    "f1": "Professionally trained musicians",
+    "f2": "Flexible ensemble options",
+    "f3": "Bilingual service (EN / FR)",
+    "f4": "Based in Montréal · Ottawa · Gatineau",
+    "travel_note": "<strong>Planning an event in another city?</strong> We\u2019d love to hear from you. Silantra travels! Just let us know your location and we\u2019ll make it happen.",
+    "label_name": "Full Name",
+    "label_email": "Email",
+    "label_date": "Event Date",
+    "label_event_type": "Event Type",
+    "label_formation": "Formation Interest",
+    "label_venue": "Venue / City",
+    "label_message": "Tell Us About Your Vision",
+    "ph_name": "Your name",
+    "ph_email": "your@email.com",
+    "ph_venue": "Venue name, city, or region",
+    "ph_message": "Share any details about your event!",
+    "opt_event_default": "Select event type",
+    "opt_wedding": "Wedding",
+    "opt_corporate": "Corporate Event",
+    "opt_cocktail": "Cocktail",
+    "opt_gala": "Gala",
+    "opt_other": "Other",
+    "opt_formation_default": "Select formation",
+    "opt_duo": "Duo \u2014 2 Musicians",
+    "opt_trio": "Trio \u2014 3 Musicians",
+    "opt_quartet": "Quartet \u2014 4 Musicians",
+    "opt_quintet": "Quintet \u2014 5 Musicians",
+    "opt_grande": "Grande \u2014 6+ Musicians",
+    "opt_undecided": "Not Sure Yet",
+    "submit": "Send Inquiry \u2192",
+    "error": "Please fill in required fields",
+    "success": "Thank You! We\u2019ll Be in Touch \u2726"
+  },
+  "clients": {
+    "label": "Trusted By",
+    "title": "Past Clients",
+    "subtitle": "A selection of the distinguished brands and institutions we\u2019ve had the honour of performing for."
+  },
+  "footer": {
+    "brand_desc": "Premium live music entertainment for life\u2019s most extraordinary moments.",
+    "beyond": "& Beyond",
+    "tagline": "Have another city in mind? We travel.",
+    "right": "Jazz & Pop<br>Duo \u00b7 Trio \u00b7 Quartet \u00b7 Quintet<br><a href=\"#booking\">Book 2026\u20132027</a>",
+    "copyright": "\u00a9 2026 Silantra Live Music Entertainment. All rights reserved.",
+    "regions": "MTL \u2014 OTT \u2014 GAT \u2014 & BEYOND"
+  }
+}
