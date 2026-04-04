@@ -230,9 +230,15 @@ section { padding: 7rem 2rem; position: relative; }
   border: 1px solid rgba(176,125,59,0.1);
   display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
-.about-image-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; opacity: 0.4; }
-.about-image-inner img { width: 120px; height: auto; opacity: 0.6; }
-.about-image-inner span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft); }
+.about-slideshow { position: absolute; inset: 0; }
+.about-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.about-slide-1 { animation: aboutFade 10s ease-in-out infinite; }
+.about-slide-2 { animation: aboutFade 10s ease-in-out infinite 5s; }
+@keyframes aboutFade {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
 .about-image::before {
   content: ''; position: absolute; top: -15px; left: -15px;
   width: 80px; height: 80px; border-top: 1px solid var(--bronze); border-left: 1px solid var(--bronze); opacity: 0.3;
@@ -317,6 +323,25 @@ section { padding: 7rem 2rem; position: relative; }
 .media-placeholder:hover { border-color: rgba(176,125,59,0.25); background: var(--bg-linen); }
 .media-placeholder svg { width: 36px; height: 36px; stroke: var(--bronze); stroke-width: 1; fill: none; opacity: 0.4; }
 .media-placeholder span { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-soft); }
+
+/* GALLERY */
+#gallery { background: var(--bg-warm); }
+.gallery-header { text-align: center; margin-bottom: 3rem; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+.gallery-item {
+  overflow: hidden;
+  border: 1px solid rgba(176,125,59,0.1);
+  aspect-ratio: 4/3;
+}
+.gallery-item img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.04); }
 
 /* BOOKING */
 #booking { background: var(--bg-deep); }
@@ -504,6 +529,7 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
     <li><a href="#ensembles" onclick="closeMenu()" data-i18n="nav.ensembles">Ensembles</a></li>
     <li><a href="#services" onclick="closeMenu()" data-i18n="nav.services">Services</a></li>
     <li><a href="#experience" onclick="closeMenu()" data-i18n="nav.experience">Experience</a></li>
+    <li><a href="#gallery" onclick="closeMenu()">Gallery</a></li>
     <li><a href="#booking" class="nav-cta" onclick="closeMenu()" data-i18n="nav.book_now">Book Now</a></li>
     <li><button class="lang-toggle-btn lang-toggle-menu" id="langToggleMobile" onclick="switchLang(currentLang === 'en' ? 'fr' : 'en'); closeMenu();">FR</button></li>
   </ul>
@@ -538,9 +564,9 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
   <div class="container">
     <div class="about-layout">
       <div class="about-image reveal">
-        <div class="about-image-inner">
-          <img src="images/SilantraLogo.png" alt="Silantra Live Music">
-          <span data-i18n="about.photo">Photo Coming Soon</span>
+        <div class="about-slideshow">
+          <img src="images/pictures/Boston Scientific.jpeg" alt="Silantra performing at a gala" class="about-slide about-slide-1">
+          <img src="images/pictures/Silantra2.jpg" alt="Silantra Live Music" class="about-slide about-slide-2">
         </div>
       </div>
       <div class="about-text">
@@ -679,6 +705,24 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
     <div class="media-placeholder reveal reveal-delay-3">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
       <span data-i18n="experience.video">Video Coming Soon</span>
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <span class="section-label">In The Moment</span>
+      <h2 class="section-title">Gallery</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal reveal-delay-1">
+        <img src="images/pictures/Boston Scientific.jpeg" alt="Silantra performing at a corporate gala">
+      </div>
+      <div class="gallery-item reveal reveal-delay-2">
+        <img src="images/pictures/Boston Scientific2.jpeg" alt="Silantra keyboardist at an event">
+      </div>
     </div>
   </div>
 </section>

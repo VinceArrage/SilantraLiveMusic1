@@ -17,7 +17,8 @@
       "WebFetch(domain:donjjewellery.com)",
       "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://donjjewellery.com/wp-content/uploads/2025/11/logo-new.svg' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/donj.svg' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/donj.svg\")",
       "WebFetch(domain:www.cigre.org)",
-      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://www.cigre.org/images/logo/cigre.png' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/cigre.png' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/cigre.png\")"
+      "Bash(powershell -Command \"Invoke-WebRequest -Uri 'https://www.cigre.org/images/logo/cigre.png' -OutFile 'C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/cigre.png' -UseBasicParsing\" && ls -la \"C:/Users/Vincent Arrage/Documents/ClaudeProject/SilantraLiveMusic/images/clients/cigre.png\")",
+      "Bash(python3 -c ':*)"
     ]
   }
 }
