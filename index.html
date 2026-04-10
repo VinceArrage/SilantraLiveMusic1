@@ -877,6 +877,12 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
   </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init({ publicKey: 'gGWUVnFFA0Qzav9tb' });
+  })();
+</script>
 <script>
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 60); });
@@ -967,10 +973,16 @@ switchLang(currentLang);
 
 function handleSubmit() {
   const btn = document.querySelector('.form-submit');
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const date = document.getElementById('date').value;
+  const eventType = document.getElementById('eventType').value;
+  const formation = document.getElementById('formation').value;
+  const venue = document.getElementById('venue').value.trim();
+  const message = document.getElementById('message').value.trim();
   const t = translations[currentLang] || {};
   const isFr = currentLang === 'fr';
+
   if (!name || !email) {
     btn.textContent = getVal(t, 'booking.error') || (isFr ? 'Veuillez remplir les champs obligatoires' : 'Please fill in required fields');
     btn.style.background = '#8a4040';
@@ -980,14 +992,47 @@ function handleSubmit() {
     }, 2500);
     return;
   }
-  btn.textContent = getVal(t, 'booking.success') || (isFr ? 'Merci! Nous vous contacterons bientôt ✦' : "Thank You! We'll Be in Touch ✦");
-  btn.style.background = '#4a7a4a';
+
+  const eventTypeLabels = {
+    wedding: 'Wedding', corporate: 'Corporate Event',
+    cocktail: 'Cocktail', gala: 'Gala', other: 'Other'
+  };
+  const formationLabels = {
+    duo: 'Duo — 2 Musicians', trio: 'Trio — 3 Musicians',
+    quartet: 'Quartet — 4 Musicians', quintet: 'Quintet — 5 Musicians',
+    grande: 'Grande — 6+ Musicians', undecided: 'Not Sure Yet'
+  };
+
+  const formattedDate = date ? new Date(date + 'T00:00:00').toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Not specified';
+
+  btn.textContent = isFr ? 'Envoi en cours...' : 'Sending...';
   btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = getVal(t, 'booking.submit') || (isFr ? 'Envoyer la demande →' : 'Send Inquiry →');
-    btn.style.background = '';
+
+  emailjs.send('service_ob9wr0r', 'template_7idnnuy', {
+    from_name:  name,
+    from_email: email,
+    event_date: formattedDate,
+    event_type: eventTypeLabels[eventType] || 'Not specified',
+    formation:  formationLabels[formation] || 'Not specified',
+    venue:      venue || 'Not specified',
+    message:    message || '(No additional details provided)'
+  }).then(() => {
+    btn.textContent = getVal(t, 'booking.success') || (isFr ? 'Merci! Nous vous contacterons bientôt ✦' : "Thank You! We'll Be in Touch ✦");
+    btn.style.background = '#4a7a4a';
+    setTimeout(() => {
+      btn.textContent = getVal(t, 'booking.submit') || (isFr ? 'Envoyer la demande →' : 'Send Inquiry →');
+      btn.style.background = '';
+      btn.disabled = false;
+    }, 4000);
+  }).catch(() => {
+    btn.textContent = isFr ? 'Erreur — réessayez' : 'Error — please try again';
+    btn.style.background = '#8a4040';
     btn.disabled = false;
-  }, 4000);
+    setTimeout(() => {
+      btn.textContent = getVal(t, 'booking.submit') || (isFr ? 'Envoyer la demande →' : 'Send Inquiry →');
+      btn.style.background = '';
+    }, 3000);
+  });
 }
 </script>
 </body>
