@@ -232,11 +232,12 @@ section { padding: 7rem 2rem; position: relative; }
 }
 .about-slideshow { position: absolute; inset: 0; }
 .about-slide { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.about-slide-1 { animation: aboutFade 10s ease-in-out infinite; }
-.about-slide-2 { animation: aboutFade 10s ease-in-out infinite 5s; }
+.about-slide-1 { animation: aboutFade 15s ease-in-out infinite; }
+.about-slide-2 { animation: aboutFade 15s ease-in-out infinite 5s; }
+.about-slide-3 { animation: aboutFade 15s ease-in-out infinite 10s; }
 @keyframes aboutFade {
-  0%, 45% { opacity: 1; }
-  50%, 95% { opacity: 0; }
+  0%, 30% { opacity: 1; }
+  35%, 95% { opacity: 0; }
   100% { opacity: 1; }
 }
 .about-image::before {
@@ -567,6 +568,7 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
         <div class="about-slideshow">
           <img src="images/pictures/Boston Scientific.jpeg" alt="Silantra performing at a gala" class="about-slide about-slide-1">
           <img src="images/pictures/Silantra2.jpg" alt="Silantra Live Music" class="about-slide about-slide-2">
+          <img src="images/pictures/versaterm.jpg" alt="Silantra performing at Versaterm" class="about-slide about-slide-3">
         </div>
       </div>
       <div class="about-text">
@@ -694,9 +696,8 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
     <span class="experience-attr" data-i18n="experience.attr">— The Silantra Philosophy</span>
   </div>
   <div class="media-grid">
-    <div class="media-placeholder reveal reveal-delay-1">
-      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
-      <span data-i18n="experience.video">Video Coming Soon</span>
+    <div class="media-placeholder reveal reveal-delay-1" style="padding:0; overflow:hidden;">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/caqdvoCpBZE" title="Silantra Live Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;"></iframe>
     </div>
     <div class="media-placeholder reveal reveal-delay-2">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
@@ -722,6 +723,9 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
       </div>
       <div class="gallery-item reveal reveal-delay-2">
         <img src="images/pictures/Boston Scientific2.jpeg" alt="Silantra keyboardist at an event">
+      </div>
+      <div class="gallery-item reveal reveal-delay-3">
+        <img src="images/pictures/versaterm.jpg" alt="Silantra performing at Versaterm">
       </div>
     </div>
   </div>
