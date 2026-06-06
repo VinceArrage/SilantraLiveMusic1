@@ -699,9 +699,8 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
     <div class="media-placeholder reveal reveal-delay-1" style="padding:0; overflow:hidden;">
       <iframe width="100%" height="100%" src="https://www.youtube.com/embed/caqdvoCpBZE" title="Silantra Live Music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;"></iframe>
     </div>
-    <div class="media-placeholder reveal reveal-delay-2">
-      <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
-      <span data-i18n="experience.video">Video Coming Soon</span>
+    <div class="media-placeholder reveal reveal-delay-2" style="padding:0; overflow:hidden;">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4h21NFoBPXA" title="Silantra Quintet Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;"></iframe>
     </div>
     <div class="media-placeholder reveal reveal-delay-3">
       <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><polygon points="16,12 30,20 16,28"/></svg>
@@ -759,6 +758,26 @@ nav.scrolled .lang-toggle:hover { color: var(--bronze); border-color: var(--bron
           <div class="form-group">
             <label for="email" data-i18n="booking.label_email">Email</label>
             <input type="email" id="email" placeholder="your@email.com" data-i18n-placeholder="booking.ph_email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone" data-i18n="booking.label_phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Your phone number" data-i18n-placeholder="booking.ph_phone">
+          </div>
+          <div class="form-group">
+            <label for="referral" data-i18n="booking.label_referral">How Did You Hear About Us?</label>
+            <select id="referral">
+              <option value="" disabled selected data-i18n="booking.opt_referral_default">Select an option</option>
+              <option value="linkedin" data-i18n="booking.opt_linkedin">LinkedIn</option>
+              <option value="facebook" data-i18n="booking.opt_facebook">Facebook</option>
+              <option value="instagram" data-i18n="booking.opt_instagram">Instagram</option>
+              <option value="reference" data-i18n="booking.opt_reference">Reference / Recommendation</option>
+              <option value="friend" data-i18n="booking.opt_friend">Friend or Colleague</option>
+              <option value="past_show" data-i18n="booking.opt_past_show">Past Show or Event</option>
+              <option value="blog" data-i18n="booking.opt_blog">Blog or Article</option>
+              <option value="other" data-i18n="booking.opt_referral_other">Other</option>
+            </select>
           </div>
         </div>
         <div class="form-row">
@@ -979,6 +998,8 @@ function handleSubmit() {
   const btn = document.querySelector('.form-submit');
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const referral = document.getElementById('referral').value;
   const date = document.getElementById('date').value;
   const eventType = document.getElementById('eventType').value;
   const formation = document.getElementById('formation').value;
@@ -1006,6 +1027,11 @@ function handleSubmit() {
     quartet: 'Quartet — 4 Musicians', quintet: 'Quintet — 5 Musicians',
     grande: 'Grande — 6+ Musicians', undecided: 'Not Sure Yet'
   };
+  const referralLabels = {
+    linkedin: 'LinkedIn', facebook: 'Facebook', instagram: 'Instagram',
+    reference: 'Reference / Recommendation', friend: 'Friend or Colleague',
+    past_show: 'Past Show or Event', blog: 'Blog or Article', other: 'Other'
+  };
 
   const formattedDate = date ? new Date(date + 'T00:00:00').toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Not specified';
 
@@ -1015,6 +1041,8 @@ function handleSubmit() {
   emailjs.send('service_ob9wr0r', 'template_7idnnuy', {
     from_name:  name,
     from_email: email,
+    phone:      phone || 'Not provided',
+    referral:   referralLabels[referral] || 'Not specified',
     event_date: formattedDate,
     event_type: eventTypeLabels[eventType] || 'Not specified',
     formation:  formationLabels[formation] || 'Not specified',
